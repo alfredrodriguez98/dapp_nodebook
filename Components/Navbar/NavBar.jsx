@@ -59,7 +59,7 @@ const NavBar = () => {
                 key={i + 1}
                 className={`${Style.NavBar_box_right_menu_items} ${
                   active == i + 1 ? Style.active_btn : ""
-                }}`}
+                }`}
               >
                 <Link
                   className={Style.NavBar_box_right_menu_items_link}
@@ -79,7 +79,7 @@ const NavBar = () => {
                   key={i + 1}
                   className={`${Style.mobile_menu_items} ${
                     active == i + 1 ? Style.active_btn : ""
-                  }}`}
+                  }`}
                 >
                   <Link className={Style.mobile_menu_items_link} href={el.link}>
                     {el.menu}
@@ -128,6 +128,21 @@ const NavBar = () => {
           </div>
         </div>
       </div>
+
+      {/*MODEL COMPONENT */}
+      {openModel && (
+        <div className={Style.modelBox}>
+          <Model
+            openModel={setOpenModel}
+            title="WELCOME TO"
+            head="CHAT BUDDY"
+            info="Dummy text typing some random words to fill up this paragrapgh content"
+            smallInfo="Kindly select your name..."
+            images={images.hero}
+            functionName={createAccount}
+          />
+        </div>
+      )}
     </div>
   );
 };
