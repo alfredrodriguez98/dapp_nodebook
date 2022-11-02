@@ -96,7 +96,7 @@ export const ChatAppProvider = ({ children }) => {
 
   const addFriends = async ({ name, accountAddress }) => {
     try {
-      if (name || accountAddress) return setError("Please provide data");
+     // if (name || accountAddress) return setError("Please provide data");
 
       const contract = await connectingWithContract();
 
