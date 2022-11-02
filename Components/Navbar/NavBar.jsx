@@ -130,7 +130,7 @@ const NavBar = () => {
         </div>
       </div>
       {/*MODEL COMPONENT */}
-      {!openModel && (
+      {openModel && (
         <div className={Style.modelBox}>
           <Model
             openBox={setOpenModel}
@@ -144,7 +144,7 @@ const NavBar = () => {
           />
         </div>
       )}
-      //If we receive any error then we'll pass it as a prop
+      {/*If we receive any error then we'll pass it as a prop*/}
       {error == "" ? "" : <Error error={error} />}
     </div>
   );
