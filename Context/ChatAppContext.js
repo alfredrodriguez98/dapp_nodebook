@@ -39,7 +39,7 @@ export const ChatAppProvider = ({ children }) => {
       //GET ACCOUNT
       const connectAccount = await connectWallet();
       setAccount(connectAccount);
-
+//tried commenting to resolve issue
       //GET USER NAME
       const userName = await contract.getUsername(connectAccount); //we'll get name of the user and then we can set it to username
       setUserName(userName);

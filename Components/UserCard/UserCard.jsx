@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 //INTERNAL IMPORTS
 
-import Style from "./UserCard.module";
+import Style from "./UserCard.module.css";
 import images from "../../assets";
 
 const UserCard = ({ el, i, addFriends }) => {

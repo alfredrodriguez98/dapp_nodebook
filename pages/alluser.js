@@ -12,7 +12,7 @@ const alluser = () => {
   const {userLists, addFriends} = useContext(ChatAppContext)
   return (
     <div>
-      <div className={Style.alluser-info}>
+      <div className={Style.alluser_info}>
         <h1>Find your friends</h1>
       </div>
 
