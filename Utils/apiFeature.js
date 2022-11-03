@@ -31,12 +31,12 @@ export const connectWallet = async () => {
     const firstAccount = accounts[0];
     return firstAccount;
   } catch (error) {
-    console.log("Error");
+    console.log(error);
   }
 };
 
 const fetchContract = (signerOrProvider) =>
-  new ethers.Contract(ChatAppAddress, ChatAppABI, signerOrProvider);
+  new ethers.Contract(ChatAppABI, ChatAppAddress, signerOrProvider);
 
 export const connectingWithContract = async () => {
   try {

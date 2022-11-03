@@ -39,7 +39,7 @@ export const ChatAppProvider = ({ children }) => {
       //GET ACCOUNT
       const connectAccount = await connectWallet();
       setAccount(connectAccount);
-//tried commenting to resolve issue
+      //tried commenting to resolve issue
       //GET USER NAME
       const userName = await contract.getUsername(connectAccount); //we'll get name of the user and then we can set it to username
       setUserName(userName);
@@ -53,7 +53,7 @@ export const ChatAppProvider = ({ children }) => {
       const userList = await contract.getAllAppUsers();
       setuserLists(userList);
     } catch (error) {
-      seterror("Please install and connect your metamask wallet");
+      //setError("Please install and connect your metamask wallet");
     }
   };
 
@@ -96,7 +96,7 @@ export const ChatAppProvider = ({ children }) => {
 
   const addFriends = async ({ name, accountAddress }) => {
     try {
-     // if (name || accountAddress) return setError("Please provide data");
+      // if (name || accountAddress) return setError("Please provide data");
 
       const contract = await connectingWithContract();
 
@@ -113,7 +113,7 @@ export const ChatAppProvider = ({ children }) => {
   //SEND MESSAGE TO YOUR FRIEND
   const sendMessage = async ({ msg, address }) => {
     try {
-      if (msg || address) return seterror("Please type your message");
+      // if (msg || address) return seterror("Please type your message");
       const contract = await connectingWithContract();
 
       const addMessage = await contract.sendMessage(address, msg);

@@ -27,26 +27,28 @@ contract ChatApp {
     AllUsersStruct[] getAllUsers;
 
     mapping(address => user) userList; //address of all the users registering in our app is stored in mapping
-    mapping(bytes32 => message[]) allMessages; //contains messages between 2 users
+    mapping(bytes32 => message[]) allMessages; //contains all messages between 2 users
 
-    //Check if user exists already
+    //Check if user exists already / logged in already
 
     function checkUserExists(address pubkey) public view returns (bool) {
-        return bytes(userList[pubkey].name).length > 0;
+        return bytes(userList[pubkey].name).length > 0; //ensures name is provided to proceed
         //if returned true means user data is already present in smart contract
     }
 
     //Create a new user account
     //Using calldata saves gas fee
+    //making access modifier "external" so that anybody using the app can call it
     function createAccount(string calldata name) external {
         require(checkUserExists(msg.sender) == false, "User already exists");
         require(bytes(name).length > 0, "username cannot be empty");
         //After both the checks, a nwew username is created
-        userList[msg.sender].name = name;
+        userList[msg.sender].name = name; //updates name data to a var name
         getAllUsers.push(AllUsersStruct(name, msg.sender));
     }
 
     //Get username - checks if a user has already registered or not
+    //Returns name of user as a string, hence specifying it exclusively
     function getUsername(address pubkey) external view returns (string memory) {
         require(checkUserExists(pubkey), "User is not registered");
         return userList[pubkey].name;
@@ -64,9 +66,10 @@ contract ChatApp {
             checkAlreadyFriends(msg.sender, friend_key) == false,
             "They are already friends"
         );
+        //If all these conditions pass, then we have to add friend
 
-        _addFriend(msg.sender, friend_key, name);
-        _addFriend(friend_key, msg.sender, userList[msg.sender].name);
+        _addFriend(msg.sender, friend_key, name); //adding to your friend list
+        _addFriend(friend_key, msg.sender, userList[msg.sender].name); //letting know your friend that they have been added
     }
 
     // compares the friend's list and finds if the person is already in friend-list

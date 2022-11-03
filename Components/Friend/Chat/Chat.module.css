@@ -55,3 +55,28 @@
   line-height: 1;
 
 }
+
+.Chat_user_info_box h4,
+.Chat_user_info_box p{
+  line-height: 0;
+}
+
+@media only screen and (max-width:35rem){
+  .Chat{
+    padding: 1rem;
+  }
+
+  .Chat p{
+    font-size: .8rem;
+  }
+
+  .Chat small {
+    font-size: .8rem;
+  }
+
+  .show{
+    display: none;
+  }
+
+
+}
